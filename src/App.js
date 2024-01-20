@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 const tempMovieData = [
   {
@@ -46,6 +47,7 @@ const tempWatchedData = [
     userRating: 9,
   },
 ];
+const KEY = '4660dba2'
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -53,6 +55,13 @@ const average = (arr) =>
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
+
+  useEffect(function fetchMovie() {
+    const res = fetch(`http://wwww.omdb.com/?apikey=${KEY}&s=interstellar}`)
+    const data = res.json()
+    console.log(data);
+
+  }, [])
 
 
   return (
