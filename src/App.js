@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const tempMovieData = [
   {
@@ -47,7 +47,7 @@ const tempWatchedData = [
     userRating: 9,
   },
 ];
-const KEY = '4660dba2'
+// const KEY = '4660dba2'
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -56,12 +56,12 @@ export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
 
-  useEffect(function fetchMovie() {
-    const res = fetch(`http://wwww.omdb.com/?apikey=${KEY}&s=interstellar}`)
-    const data = res.json()
-    console.log(data);
+  // useEffect(function fetchMovie() {
+  //   const res = fetch(`http://wwww.omdb.com/?apikey=${KEY}&s=interstellar}`)
+  //   const data = res.json()
+  //   console.log(data);
 
-  }, [])
+  // }, [])
 
 
   return (
@@ -75,11 +75,11 @@ export default function App() {
       <Main>
 
         <Box>
-          <MovieList movies={movies} />
+          <MovieList movies={movies} setMovies={setMovies} />
         </Box>
 
         <Box>
-          <WatchedSummary watched={watched} />
+          <WatchedSummary watched={watched} setWatched={setWatched} />
           <WatchList watched={watched} />
         </Box>
 
